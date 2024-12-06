@@ -1,14 +1,14 @@
 import flags from './model/flags.js';
 
-const main = document.querySelector('main');
+const mainContainer = document.querySelector('main');
 
-const flagsHtml = flags.map(createFlagView).join('');
+const allFlagsHtml = flags.map(renderFlagHtml).join('');
 
-main.insertAdjacentHTML('beforeend', flagsHtml);
+mainContainer.insertAdjacentHTML('beforeend', allFlagsHtml);
 
-function createFlagView(flag) {
+function renderFlagHtml(flagDetails) {
   return `<div class="flag col-2 my-2 text-center">
-    <img src="${flag.image}" alt="${flag.name}">
-    <p>${flag.name}</p>
+    <img src="${flagDetails.image}" alt="${flagDetails.name}">
+    <p>${flagDetails.name}</p>
   </div>`;
 }
